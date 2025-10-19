@@ -26,6 +26,11 @@ func loadTasksFromJson() error {
 	}
 
 	var list []Task
+	if err := json.Unmarshal(bytes, &list); err != nil {
+
+		return err
+
+	}
 
 	tasks = make(map[int]*Task)
 	maxID := 0
